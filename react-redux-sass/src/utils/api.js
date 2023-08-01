@@ -1,6 +1,6 @@
-import axiosInstance from "../lib"
+import axios from "../lib/axios"
 
 export async function fetchAPITodos() {
-    return await axiosInstance.get("todos/1");
+    return await axios.get("todos/1");
   }
   
