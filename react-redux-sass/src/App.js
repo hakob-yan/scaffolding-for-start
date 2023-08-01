@@ -2,6 +2,7 @@ import "./App.scss";
 import { useDispatch } from "react-redux";
 import { shallowEqual, useSelector } from "react-redux";
 import { addTodo ,fetchTodo} from "./redux/actions";
+import { useEffect } from "react";
 
 function App() {
   const dispatch = useDispatch();
