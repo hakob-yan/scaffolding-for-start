@@ -1,5 +1,5 @@
 import * as actions from "../actionTypes";
-const defaultState = { todos: ["Go shoping", "Do homeworks"] };
+const defaultState = { todos: ["Go shoping", "Do homeworks"], error: "" };
 
 export default function rootReducer(state = defaultState, action) {
   switch (action.type) {
@@ -9,6 +9,13 @@ export default function rootReducer(state = defaultState, action) {
       return {
         ...state,
         todos: newTodos,
+      };
+    }
+    case actions.SET_ERROR: {
+      const { message } = action.payload;
+      return {
+        ...state,
+        error: message,
       };
     }
 

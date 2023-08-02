@@ -1,15 +1,16 @@
 import "./App.scss";
 import { useDispatch } from "react-redux";
 import { shallowEqual, useSelector } from "react-redux";
-import { addTodo ,fetchTodo} from "./redux/actions";
+import { addTodo, fetchTodo } from "./redux/actions";
 import { useEffect } from "react";
 
 function App() {
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.rootReducer.todos, shallowEqual);
+  const error = useSelector((state) => state.rootReducer.error, shallowEqual);
+ 
   const handleClick = () => dispatch(addTodo(new Date().toString()));
   const handleAsyncClick = () => dispatch(fetchTodo());
-
 
   return (
     <div className="App">
