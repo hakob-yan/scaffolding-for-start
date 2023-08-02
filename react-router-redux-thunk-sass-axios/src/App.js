@@ -1,35 +1,23 @@
-import "./App.scss";
-import { useDispatch } from "react-redux";
-import { shallowEqual, useSelector } from "react-redux";
-import { addTodo, fetchTodo } from "./redux/actions";
-import { useEffect } from "react";
+// App.js (updated)
+import React from "react";
+import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Error from "./pages/Error";
+import * as paths from "./constants/routerPaths"
 
 function App() {
-  const dispatch = useDispatch();
-  const todos = useSelector((state) => state.rootReducer.todos, shallowEqual);
-  const error = useSelector((state) => state.rootReducer.error, shallowEqual);
- 
-  const handleClick = () => dispatch(addTodo(new Date().toString()));
-  const handleAsyncClick = () => dispatch(fetchTodo());
-
   return (
-    <div className="App">
-      {todos.map((el) => (
-        <h1 key={el}>{el}</h1>
-      ))}
-      <input
-        style={{ maxWidth: "120px", cursor: "pointer" }}
-        onClick={handleClick}
-        type="button"
-        value={"Date now"}
-      />
-      <input
-        style={{ maxWidth: "120px", cursor: "pointer" }}
-        onClick={handleAsyncClick}
-        type="button"
-        value={"async button"}
-      />
-    </div>
+    <BrowserRouter>
+      <div>
+        <nav>
+          <Link to={paths.HOME}>Home</Link>
+        </nav>
+        <Routes>
+          <Route path={paths.HOME} element={<Home />} />
+          <Route path={paths.ALL} element={<Error />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
