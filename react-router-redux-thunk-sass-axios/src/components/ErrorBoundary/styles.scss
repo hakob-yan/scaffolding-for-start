@@ -1,17 +1,18 @@
+@import "../../constants//variables.scss";
 .error-wrapper {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: #00b09b;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #96c93d, #00b09b);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #96c93d, #00b09b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: $color-first-azure;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, $color-first-yellow, $color-first-azure);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, $color-first-yellow, $color-first-azure); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   display: flex;
   justify-content: center;
   align-items: center;
   h1{
     font-size: 2rem;
-    color: #fff;
+    color: $color-white;
   }
 }

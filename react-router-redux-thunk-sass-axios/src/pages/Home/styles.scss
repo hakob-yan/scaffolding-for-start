@@ -1,17 +1,19 @@
+@import "../../constants//variables.scss";
+
 .Home {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background: #7f00ff; /* fallback for old browsers */
+    background: $color-first-pink; /* fallback for old browsers */
     background: -webkit-linear-gradient(
       to right,
-      #e100ff,
-      #7f00ff
+      $color-second-pink,
+      color-third-pink
     ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(
       to right,
-      #e100ff,
-      #7f00ff
+      $color-second-pink,
+      color-third-pink
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
   
