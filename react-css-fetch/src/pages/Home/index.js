@@ -1,15 +1,18 @@
-import { useDispatch } from "react-redux";
-import { shallowEqual, useSelector } from "react-redux";
-import { addTodo, fetchTodo } from "../../redux/actions";
-import "./styles.scss";
+import React, { useState, useEffect } from "react";
+import { fetchAPITodos } from "../../utils/api";
+import "./styles.css";
 
 function Home() {
-  const dispatch = useDispatch();
-  const todos = useSelector((state) => state.rootReducer.todos, shallowEqual);
-//   const error = useSelector((state) => state.rootReducer.error, shallowEqual);
- 
-  const handleClick = () => dispatch(addTodo(new Date().toString()));
-  const handleAsyncClick = () => dispatch(fetchTodo());
+  const [todos, setTodos] = useState([]);
+  useEffect(() => {
+    (async function () {
+      const resp = await fetchAPITodos();
+      const data=await resp.json();
+      setTodos([...todos,data.title]);
+    })();
+  }, []);
+
+  const handleClick = () => setTodos([...todos, (new Date()).toDateString()]);
 
   return (
     <div className="Home">
@@ -21,12 +24,6 @@ function Home() {
         onClick={handleClick}
         type="button"
         value={"Date now"}
-      />
-      <input
-        style={{ maxWidth: "120px", cursor: "pointer" }}
-        onClick={handleAsyncClick}
-        type="button"
-        value={"async button"}
       />
     </div>
   );
