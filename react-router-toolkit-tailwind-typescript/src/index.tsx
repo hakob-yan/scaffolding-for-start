@@ -4,6 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ErrorBoundary from './components/ErrorBoundary';
 import { Provider } from 'react-redux';
+import './index.css'
 
 import store from "./redux/store"
 
