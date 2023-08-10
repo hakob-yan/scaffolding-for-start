@@ -3,15 +3,20 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ErrorBoundary from './components/ErrorBoundary';
+import { Provider } from 'react-redux';
+
+import store from "./redux/store"
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ErrorBoundary>
-      <App />
-    </ErrorBoundary>
+    <Provider store={store}>
+      {/* <ErrorBoundary> */}
+        <App />
+      {/* </ErrorBoundary> */}
+    </Provider>
   </React.StrictMode>
 );
 
